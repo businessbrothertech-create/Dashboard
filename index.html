@@ -901,10 +901,17 @@
                     class="w-full bg-slate-900/50 p-4 rounded-xl border border-slate-800 outline-none focus:border-amber-500 text-sm">
                     <option value="">Sélectionnez un Fournisseur (Filtre Global)...</option>
                 </select>
-                <select id="expense-project" required onchange="loadProformaLinesForExpense(this)"
-                    class="w-full bg-slate-900/50 p-4 rounded-xl border border-slate-800 outline-none focus:border-amber-500 text-sm">
-                    <option value="">Sélectionnez un Projet en cours...</option>
-                </select>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <select id="expense-project" required onchange="loadProformaLinesForExpense(this)"
+                        class="w-full bg-slate-900/50 p-4 rounded-xl border border-slate-800 outline-none focus:border-amber-500 text-sm">
+                        <option value="">Sélectionnez un Projet en cours...</option>
+                    </select>
+                    <div>
+                        <label class="block text-[10px] uppercase font-bold text-slate-500 mb-1 pl-2">Total Facturé au Client (Proforma)</label>
+                        <input id="expense-project-revenue" type="text" readonly placeholder="0 Ar"
+                            class="w-full bg-slate-950/50 p-3 rounded-xl border border-slate-800 text-sm font-bold text-emerald-400 text-right">
+                    </div>
+                </div>>
 
                 <div class="bg-slate-800/20 p-4 rounded-xl border border-slate-700/50">
                     <div class="flex justify-between items-center mb-3">
@@ -1704,10 +1711,22 @@
 
         function loadProformaLinesForExpense(selectElem) {
             const container = document.getElementById('expense-lines');
+            const revInput = document.getElementById('expense-project-revenue');
+
             if (!selectElem || !selectElem.value) {
                 container.innerHTML = '<div class="text-center p-8 text-slate-500 text-sm italic">Sélectionnez un projet pour importer les lignes.</div>';
+                if (revInput) revInput.value = '';
                 updateExpenseTotal();
                 return;
+            }
+
+            if (revInput && globalDataCache && globalDataCache.workflow) {
+                const pData = globalDataCache.workflow.find(p => p.project === selectElem.value);
+                if (pData) {
+                    revInput.value = (pData.revenue || 0).toLocaleString() + ' Ar';
+                } else {
+                    revInput.value = '0 Ar';
+                }
             }
             const selectedOption = selectElem.options[selectElem.selectedIndex];
             const projectId = selectedOption ? selectedOption.getAttribute('data-id') : null;
@@ -2110,22 +2129,13 @@
             }
             const container = document.getElementById('expense-lines');
             if (container) {
-                container.innerHTML = `
-                    <div class="expense-line grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-slate-900/40 p-3 rounded-xl sm:bg-transparent sm:p-0 border border-slate-800/50 sm:border-none">
-                        <input type="text" placeholder="Détail (ex: Ciment)" required class="sm:col-span-4 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
-                        <input type="number" placeholder="Qté" oninput="calcExpenseLine(this)" required class="sm:col-span-2 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
-                        <input type="text" placeholder="Unité (ex: Sac, m2)" required class="sm:col-span-1 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
-                        <input type="number" placeholder="P.U (Ar)" oninput="calcExpenseLine(this)" required class="sm:col-span-2 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
-                        <div class="flex sm:col-span-3 items-center gap-2 w-full justify-between sm:justify-end">
-                            <span class="sm:hidden text-xs font-bold text-slate-400">Total:</span>
-                            <input type="text" placeholder="Total (Ar)" readonly class="flex-1 sm:w-full bg-amber-950/50 p-3 rounded-lg border border-amber-800 text-amber-300 font-bold text-sm text-right">
-                            <button type="button" onclick="if(document.querySelectorAll('.expense-line').length>1) { this.closest('.expense-line').remove(); updateExpenseTotal(); }" class="text-rose-500/50 hover:text-rose-500 p-2 text-center"><i class="fas fa-times"></i></button>
-                        </div>
-                    </div>
-                `;
+                container.innerHTML = '<div class="text-center p-8 text-slate-500 text-sm italic">Sélectionnez un projet pour importer les lignes.</div>';
             }
             const totalDisplay = document.getElementById('expense-total-display');
             if (totalDisplay) totalDisplay.textContent = "0 Ar";
+            
+            const revInput = document.getElementById('expense-project-revenue');
+            if (revInput) revInput.value = '';
         }
 
         function openExpenseNormal() {
