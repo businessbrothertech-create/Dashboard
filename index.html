@@ -324,12 +324,13 @@
 
     <!-- MAIN -->
     <main class="flex-1 flex flex-col overflow-hidden">
-        <header class="relative z-[150] h-20 glass border-b border-slate-800 flex items-center justify-between px-4 lg:px-8">
+        <header
+            class="relative z-[150] h-20 glass border-b border-slate-800 flex items-center justify-between px-4 lg:px-8">
             <div class="flex items-center gap-3 lg:gap-4">
                 <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white text-xl p-2 mr-1"><i
                         class="fas fa-bars"></i></button>
                 <h2 id="section-title" class="text-base lg:text-lg font-bold truncate max-w-[150px] sm:max-w-none">
-                   test sync</h2>
+                    Tableau de Bord</h2>
                 <div class="flex items-center gap-2">
                     <select id="year-selector" onchange="updatePeriodSelector(); fetchData()"
                         class="rounded-lg text-[10px] px-3 py-1.5 outline-none font-bold uppercase tracking-wider cursor-pointer shadow-sm bg-indigo-500/10 text-indigo-400 mr-2">
@@ -907,11 +908,12 @@
                         <option value="">Sélectionnez un Projet en cours...</option>
                     </select>
                     <div>
-                        <label class="block text-[10px] uppercase font-bold text-slate-500 mb-1 pl-2">Total Facturé au Client (Proforma)</label>
+                        <label class="block text-[10px] uppercase font-bold text-slate-500 mb-1 pl-2">Total Facturé au
+                            Client (Proforma)</label>
                         <input id="expense-project-revenue" type="text" readonly placeholder="0 Ar"
                             class="w-full bg-slate-950/50 p-3 rounded-xl border border-slate-800 text-sm font-bold text-emerald-400 text-right">
                     </div>
-                </div>>
+                </div>
 
                 <div class="bg-slate-800/20 p-4 rounded-xl border border-slate-700/50">
                     <div class="flex justify-between items-center mb-3">
@@ -2135,7 +2137,7 @@
             }
             const totalDisplay = document.getElementById('expense-total-display');
             if (totalDisplay) totalDisplay.textContent = "0 Ar";
-            
+
             const revInput = document.getElementById('expense-project-revenue');
             if (revInput) revInput.value = '';
         }
