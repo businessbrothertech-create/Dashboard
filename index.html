@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+    <link rel="icon" href="data:,">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manitra ERP - TOTAL CONTROL V6</title>
@@ -196,23 +197,28 @@
 <body class="flex h-screen overflow-hidden">
 
     <!-- OVERLAY DE LOGIN -->
-    <div id="login-overlay" class="fixed inset-0 bg-slate-950 backdrop-blur-xl z-[300] flex items-center justify-center">
-        <div class="glass w-full max-w-sm rounded-3xl p-8 border border-blue-500/20 shadow-2xl relative overflow-hidden">
+    <div id="login-overlay"
+        class="fixed inset-0 bg-slate-950 backdrop-blur-xl z-[300] flex items-center justify-center">
+        <div
+            class="glass w-full max-w-sm rounded-3xl p-8 border border-blue-500/20 shadow-2xl relative overflow-hidden">
             <div class="absolute -top-20 -left-20 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
             <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-emerald-500/20 rounded-full blur-3xl"></div>
-            
+
             <div class="relative z-10">
                 <div class="text-center mb-8">
-                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 mb-4 shadow-inner shadow-blue-500/20">
+                    <div
+                        class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 mb-4 shadow-inner shadow-blue-500/20">
                         <i class="fas fa-fingerprint text-2xl text-blue-400"></i>
                     </div>
                     <h2 class="text-2xl font-bold text-white tracking-wide">Accès Sécurisé</h2>
-                    <p class="text-xs text-slate-400 mt-2 uppercase tracking-widest font-semibold">ERP TOTAL CONTROL V6</p>
+                    <p class="text-xs text-slate-400 mt-2 uppercase tracking-widest font-semibold">ERP TOTAL CONTROL V6
+                    </p>
                 </div>
-                
+
                 <form id="login-form" onsubmit="handleLogin(event)" class="space-y-5">
                     <div>
-                        <label class="block text-[10px] uppercase font-bold text-slate-500 mb-2 pl-1 tracking-wider">Identifiant</label>
+                        <label
+                            class="block text-[10px] uppercase font-bold text-slate-500 mb-2 pl-1 tracking-wider">Identifiant</label>
                         <div class="relative">
                             <i class="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
                             <input id="login-username" type="text" required
@@ -220,9 +226,10 @@
                                 placeholder="Votre prénom...">
                         </div>
                     </div>
-                    
+
                     <div>
-                        <label class="block text-[10px] uppercase font-bold text-slate-500 mb-2 pl-1 tracking-wider">Mot de passe</label>
+                        <label class="block text-[10px] uppercase font-bold text-slate-500 mb-2 pl-1 tracking-wider">Mot
+                            de passe</label>
                         <div class="relative">
                             <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
                             <input id="login-password" type="password" required
@@ -230,7 +237,7 @@
                                 placeholder="••••••••">
                         </div>
                     </div>
-                    
+
                     <button type="submit" id="login-btn"
                         class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 py-4 rounded-2xl font-bold text-sm text-white shadow-xl shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all relative overflow-hidden group">
                         <span class="relative z-10 flex items-center justify-center gap-2">
@@ -238,7 +245,8 @@
                             <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                         </span>
                     </button>
-                    <p id="login-error" class="text-xs text-rose-400 text-center font-semibold mt-4 hidden">Identifiant ou mot de passe incorrect.</p>
+                    <p id="login-error" class="text-xs text-rose-400 text-center font-semibold mt-4 hidden">Identifiant
+                        ou mot de passe incorrect.</p>
                 </form>
             </div>
         </div>
@@ -288,8 +296,8 @@
             <div onclick="showSection('investissements', this)"
                 class="sidebar-item flex items-center gap-4 px-4 py-3 text-sm"><i class="fas fa-chart-pie w-5"></i>
                 Investissements</div>
-            <div onclick="showSection('logs', this)"
-                class="sidebar-item flex items-center gap-4 px-4 py-3 text-sm"><i class="fas fa-history w-5"></i>
+            <div onclick="showSection('logs', this)" class="sidebar-item flex items-center gap-4 px-4 py-3 text-sm"><i
+                    class="fas fa-history w-5"></i>
                 Journal d'Activité</div>
 
             <p class="text-[10px] uppercase font-bold text-slate-500 mt-8 mb-4 px-2 tracking-widest">Saisies Rapides</p>
@@ -316,7 +324,7 @@
 
     <!-- MAIN -->
     <main class="flex-1 flex flex-col overflow-hidden">
-        <header class="h-20 glass border-b border-slate-800 flex items-center justify-between px-4 lg:px-8">
+        <header class="relative z-[150] h-20 glass border-b border-slate-800 flex items-center justify-between px-4 lg:px-8">
             <div class="flex items-center gap-3 lg:gap-4">
                 <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white text-xl p-2 mr-1"><i
                         class="fas fa-bars"></i></button>
@@ -356,17 +364,21 @@
                 <div
                     class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 hidden sm:block">
                     LIVE CLOUD SYNC</div>
-                
+
                 <div class="relative">
-                    <button onclick="toggleUserMenu()" id="user-initials" class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold text-xs flex items-center justify-center shadow-lg shadow-blue-500/20 hover:scale-105 transition-transform">
+                    <button onclick="toggleUserMenu()" id="user-initials"
+                        class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold text-xs flex items-center justify-center shadow-lg shadow-blue-500/20 hover:scale-105 transition-transform">
                         --
                     </button>
-                    <div id="user-dropdown" class="absolute right-0 mt-2 w-48 glass border border-slate-700/50 rounded-xl shadow-2xl hidden z-[100] p-2">
+                    <div id="user-dropdown"
+                        class="absolute right-0 mt-2 w-48 glass border border-slate-700/50 rounded-xl shadow-2xl hidden z-[100] p-2">
                         <div class="px-3 py-2 border-b border-slate-700/50 mb-2">
-                            <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Connecté(e) comme</p>
+                            <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Connecté(e) comme
+                            </p>
                             <p class="text-sm font-bold text-white truncate" id="user-fullname">Utilisateur</p>
                         </div>
-                        <button onclick="logout()" class="w-full text-left px-3 py-2 text-xs font-bold text-rose-400 hover:bg-rose-500/10 rounded-lg transition-colors flex items-center gap-2">
+                        <button onclick="logout()"
+                            class="w-full text-left px-3 py-2 text-xs font-bold text-rose-400 hover:bg-rose-500/10 rounded-lg transition-colors flex items-center gap-2">
                             <i class="fas fa-sign-out-alt"></i> Se déconnecter
                         </button>
                     </div>
@@ -461,7 +473,9 @@
                             <option value="fournisseur">Fournisseur</option>
                             <option value="investisseur">Investisseur</option>
                         </select>
-                        <button onclick="exportTableToExcel('#company-table-body', 'Partenaires')" class="bg-emerald-600/20 text-emerald-500 hover:bg-emerald-600 hover:text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap shadow-lg shadow-emerald-500/10"><i class="fas fa-file-excel mr-2"></i> Exporter</button>
+                        <button onclick="exportTableToExcel('#company-table-body', 'Partenaires')"
+                            class="bg-emerald-600/20 text-emerald-500 hover:bg-emerald-600 hover:text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap shadow-lg shadow-emerald-500/10"><i
+                                class="fas fa-file-excel mr-2"></i> Exporter</button>
                     </div>
                 </div>
                 <div class="glass rounded-3xl overflow-hidden overflow-x-auto custom-scroll border border-white/5">
@@ -495,7 +509,9 @@
                             <option value="vente">Ventes (En cours / Payées)</option>
                             <option value="proforma">Proformas Uniquement</option>
                         </select>
-                        <button onclick="exportTableToExcel('#workflow-table-body', 'Workflow')" class="bg-emerald-600/20 text-emerald-500 hover:bg-emerald-600 hover:text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap shadow-lg shadow-emerald-500/10"><i class="fas fa-file-excel mr-2"></i> Exporter</button>
+                        <button onclick="exportTableToExcel('#workflow-table-body', 'Workflow')"
+                            class="bg-emerald-600/20 text-emerald-500 hover:bg-emerald-600 hover:text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap shadow-lg shadow-emerald-500/10"><i
+                                class="fas fa-file-excel mr-2"></i> Exporter</button>
                     </div>
                 </div>
                 <div class="glass rounded-3xl overflow-hidden overflow-x-auto custom-scroll">
@@ -556,7 +572,9 @@
                             <option value="in">Entrées d'argent (+)</option>
                             <option value="out">Sorties d'argent (-)</option>
                         </select>
-                        <button onclick="exportTableToExcel('#finance-table-body', 'Finance')" class="bg-emerald-600/20 text-emerald-500 hover:bg-emerald-600 hover:text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap shadow-lg shadow-emerald-500/10"><i class="fas fa-file-excel mr-2"></i> Exporter</button>
+                        <button onclick="exportTableToExcel('#finance-table-body', 'Finance')"
+                            class="bg-emerald-600/20 text-emerald-500 hover:bg-emerald-600 hover:text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap shadow-lg shadow-emerald-500/10"><i
+                                class="fas fa-file-excel mr-2"></i> Exporter</button>
                     </div>
                 </div>
                 <div class="glass rounded-3xl overflow-hidden overflow-x-auto custom-scroll">
@@ -581,7 +599,9 @@
             <section id="section-investissements" class="hidden space-y-6 lg:space-y-8">
                 <div class="flex justify-between items-center">
                     <h3 class="text-xl font-bold">Suivi des Investissements</h3>
-                    <button onclick="exportTableToExcel('#invest-table-body', 'Investissements')" class="bg-emerald-600/20 text-emerald-500 hover:bg-emerald-600 hover:text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap shadow-lg shadow-emerald-500/10"><i class="fas fa-file-excel mr-2"></i> Exporter</button>
+                    <button onclick="exportTableToExcel('#invest-table-body', 'Investissements')"
+                        class="bg-emerald-600/20 text-emerald-500 hover:bg-emerald-600 hover:text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap shadow-lg shadow-emerald-500/10"><i
+                            class="fas fa-file-excel mr-2"></i> Exporter</button>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6 mb-6">
                     <div class="glass p-6 rounded-3xl">
@@ -620,19 +640,22 @@
             <!-- SECTION LOGS -->
             <section id="section-logs" class="hidden h-full flex flex-col p-4 lg:p-8 overflow-y-auto">
                 <div class="glass p-6 rounded-2xl border border-slate-700/50 mb-6 flex-shrink-0">
-                    <h3 class="text-xl font-bold mb-4"><i class="fas fa-history text-indigo-500 mr-2"></i> Journal d'Activité</h3>
+                    <h3 class="text-xl font-bold mb-4"><i class="fas fa-history text-indigo-500 mr-2"></i> Journal
+                        d'Activité</h3>
                     <p class="text-xs text-slate-400">Suivez en temps réel toutes les actions effectuées sur l'ERP.</p>
                     <div class="mt-4 flex items-center justify-between">
-                        <button onclick="fetchLogs()" class="bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 px-4 py-2 rounded-lg text-xs font-bold hover:bg-indigo-600 hover:text-white transition-all">
+                        <button onclick="fetchLogs()"
+                            class="bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 px-4 py-2 rounded-lg text-xs font-bold hover:bg-indigo-600 hover:text-white transition-all">
                             <i class="fas fa-sync-alt mr-2"></i>Rafraîchir
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="glass flex-1 rounded-2xl border border-slate-700/50 flex flex-col overflow-hidden">
                     <div class="overflow-x-auto flex-1 custom-scroll">
                         <table class="w-full text-left text-sm whitespace-nowrap">
-                            <thead class="bg-slate-800/50 text-xs uppercase text-slate-400 sticky top-0 z-10 backdrop-blur-md">
+                            <thead
+                                class="bg-slate-800/50 text-xs uppercase text-slate-400 sticky top-0 z-10 backdrop-blur-md">
                                 <tr>
                                     <th class="p-4 font-bold tracking-wider rounded-tl-xl">Date & Heure</th>
                                     <th class="p-4 font-bold tracking-wider">Utilisateur</th>
@@ -654,7 +677,7 @@
 
     <!-- Modal Invoice -->
     <div id="modal-invoice"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-xl rounded-3xl p-8 border border-blue-500/20 shadow-2xl">
             <h4 class="text-xl font-bold mb-6 flex items-center gap-3"><i class="fas fa-file-invoice text-blue-500"></i>
                 Nouvelle Facture de Vente</h4>
@@ -704,7 +727,7 @@
 
     <!-- Modal Proforma -->
     <div id="modal-proforma"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div
             class="glass w-full max-w-3xl rounded-3xl p-6 lg:p-8 border border-indigo-500/20 shadow-2xl max-h-[90vh] overflow-y-auto custom-scroll">
             <h4 class="text-xl font-bold mb-6 flex items-center gap-3"><i class="fas fa-file-alt text-indigo-500"></i>
@@ -773,7 +796,7 @@
 
     <!-- Modal Edit Workflow -->
     <div id="modal-edit-workflow"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-xl rounded-3xl p-8 border border-blue-500/20 shadow-2xl">
             <h4 class="text-xl font-bold mb-6 flex items-center gap-3"><i class="fas fa-edit text-blue-500"></i>
                 Modifier le Projet / Vente</h4>
@@ -805,7 +828,7 @@
 
     <!-- Modal Edit Investment -->
     <div id="modal-edit-investment"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-xl rounded-3xl p-8 border border-rose-500/20 shadow-2xl">
             <h4 class="text-xl font-bold mb-6 flex items-center gap-3"><i class="fas fa-edit text-rose-500"></i>
                 Modifier l'Investissement</h4>
@@ -849,7 +872,7 @@
 
     <!-- Modal Expense -->
     <div id="modal-expense"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div
             class="glass w-full max-w-3xl rounded-3xl p-6 lg:p-8 border border-amber-500/20 shadow-2xl max-h-[90vh] overflow-y-auto custom-scroll">
             <h4 class="text-xl font-bold mb-6 flex items-center gap-3"><i
@@ -886,16 +909,25 @@
                 <div class="bg-slate-800/20 p-4 rounded-xl border border-slate-700/50">
                     <div class="flex justify-between items-center mb-3">
                         <div>
-                            <label class="block text-[10px] uppercase font-bold text-slate-400">Lignes d'achat (Importées du Proforma)</label>
-                            <span id="expense-line-counter" class="text-xs text-amber-500 font-bold">Lignes affichées : 0/0</span>
+                            <label class="block text-[10px] uppercase font-bold text-slate-400">Lignes d'achat
+                                (Importées du Proforma)</label>
+                            <span id="expense-line-counter" class="text-xs text-amber-500 font-bold">Lignes affichées :
+                                0/0</span>
                         </div>
                         <div class="flex gap-2">
-                            <button type="button" onclick="selectAllExpenseLines(true)" class="text-[10px] text-emerald-400 font-bold hover:text-emerald-300 px-2 py-1 bg-emerald-500/10 rounded">Tout cocher</button>
-                            <button type="button" onclick="selectAllExpenseLines(false)" class="text-[10px] text-rose-400 font-bold hover:text-rose-300 px-2 py-1 bg-rose-500/10 rounded">Tout décocher</button>
-                            <button type="button" onclick="addExpenseLine(true)" class="text-[10px] text-amber-500 font-bold hover:text-amber-400 px-2 py-1 bg-amber-500/10 rounded ml-2">+ Ajouter vide</button>
+                            <button type="button" onclick="selectAllExpenseLines(true)"
+                                class="text-[10px] text-emerald-400 font-bold hover:text-emerald-300 px-2 py-1 bg-emerald-500/10 rounded">Tout
+                                cocher</button>
+                            <button type="button" onclick="selectAllExpenseLines(false)"
+                                class="text-[10px] text-rose-400 font-bold hover:text-rose-300 px-2 py-1 bg-rose-500/10 rounded">Tout
+                                décocher</button>
+                            <button type="button" onclick="addExpenseLine(true)"
+                                class="text-[10px] text-amber-500 font-bold hover:text-amber-400 px-2 py-1 bg-amber-500/10 rounded ml-2">+
+                                Ajouter vide</button>
                         </div>
                     </div>
-                    <div class="hidden sm:grid sm:grid-cols-12 gap-2 px-1 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <div
+                        class="hidden sm:grid sm:grid-cols-12 gap-2 px-1 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                         <div class="col-span-4">Coche & Détail de l'achat</div>
                         <div class="col-span-1">Qté</div>
                         <div class="col-span-1">Unité</div>
@@ -904,19 +936,23 @@
                         <div class="col-span-2 text-right pr-8">Total (Ar)</div>
                     </div>
                     <div id="expense-lines" class="space-y-3 max-h-60 overflow-y-auto custom-scroll pr-2">
-                        <div class="text-center p-8 text-slate-500 text-sm italic">Sélectionnez un projet pour importer les lignes.</div>
+                        <div class="text-center p-8 text-slate-500 text-sm italic">Sélectionnez un projet pour importer
+                            les lignes.</div>
                     </div>
                     <div class="mt-4 pt-4 border-t border-slate-700 grid grid-cols-1 sm:grid-cols-3 gap-4 text-right">
                         <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
-                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Total Global Projet</span>
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Total Global
+                                Projet</span>
                             <span id="expense-total-global" class="font-bold text-slate-400 text-lg">0 Ar</span>
                         </div>
                         <div class="bg-blue-900/10 p-3 rounded-xl border border-blue-500/20">
-                            <span class="block text-[10px] text-blue-400/70 uppercase font-bold">Total Fournisseur (Filtre)</span>
+                            <span class="block text-[10px] text-blue-400/70 uppercase font-bold">Total Fournisseur
+                                (Filtre)</span>
                             <span id="expense-total-fournisseur" class="font-bold text-blue-400 text-lg">0 Ar</span>
                         </div>
                         <div class="bg-amber-900/20 p-3 rounded-xl border border-amber-500/30">
-                            <span class="block text-[10px] text-amber-500/70 uppercase font-bold">Total Sélectionné (À PAYER)</span>
+                            <span class="block text-[10px] text-amber-500/70 uppercase font-bold">Total Sélectionné (À
+                                PAYER)</span>
                             <span id="expense-total-display" class="font-bold text-amber-500 text-xl">0 Ar</span>
                         </div>
                     </div>
@@ -933,7 +969,7 @@
 
     <!-- Modal Cash -->
     <div id="modal-cash"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-xl rounded-3xl p-8 border border-emerald-500/20 shadow-2xl">
             <h4 class="text-xl font-bold mb-6 flex items-center gap-3"><i
                     class="fas fa-money-bill text-emerald-500"></i> Mouvement de Trésorerie</h4>
@@ -961,7 +997,7 @@
 
     <!-- Modal Collaborator -->
     <div id="modal-collaborator"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-xl rounded-3xl p-8 border border-purple-500/20 shadow-2xl">
             <h4 class="text-xl font-bold mb-6 flex items-center gap-3"><i class="fas fa-handshake text-purple-500"></i>
                 Nouveau Partenaire</h4>
@@ -996,7 +1032,7 @@
 
     <!-- Modal Edit Collaborator -->
     <div id="modal-edit-collaborator"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-xl rounded-3xl p-8 border border-blue-500/20 shadow-2xl">
             <h4 class="text-xl font-bold mb-6 flex items-center gap-3"><i class="fas fa-user-edit text-blue-500"></i>
                 Modifier Partenaire</h4>
@@ -1026,7 +1062,7 @@
 
     <!-- Modal Project Detail -->
     <div id="modal-project-detail"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-2xl rounded-3xl p-8 border border-blue-500/20 shadow-2xl">
             <div class="flex justify-between items-center mb-6">
                 <h4 class="text-xl font-bold flex items-center gap-3"><i class="fas fa-folder-open text-blue-500"></i>
@@ -1046,7 +1082,7 @@
 
     <!-- Modal Investment -->
     <div id="modal-investment"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-xl rounded-3xl p-8 border border-rose-500/20 shadow-2xl">
             <h4 class="text-xl font-bold mb-6 flex items-center gap-3"><i class="fas fa-chart-line text-rose-500"></i>
                 Mouvement d'Investissement</h4>
@@ -1080,7 +1116,7 @@
 
     <!-- Modal Project Detail (Drill-down) -->
     <div id="modal-project-detail-drill"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[110] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-4xl rounded-3xl p-10">
             <div class="flex justify-between items-center mb-8">
                 <h4 class="text-2xl font-bold">Détails du Dossier</h4><button
@@ -1091,7 +1127,7 @@
     </div>
     <!-- Modal Finance Detail -->
     <div id="modal-finance-detail"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[110] hidden flex items-center justify-center p-4">
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[160] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-2xl rounded-3xl p-8 border border-blue-500/20 shadow-2xl">
             <div class="flex justify-between items-center mb-6">
                 <h4 class="text-xl font-bold flex items-center gap-3"><i class="fas fa-search-dollar text-blue-500"></i>
@@ -1377,8 +1413,8 @@
         }
 
         function doJSONPFetch(action, callbackFunc, extraParams = "") {
-            const cb = "cb_" + action + "_" + Date.now() + Math.floor(Math.random()*1000);
-            window[cb] = function(data) {
+            const cb = "cb_" + action + "_" + Date.now() + Math.floor(Math.random() * 1000);
+            window[cb] = function (data) {
                 if (data && data.error === "Unauthorized") {
                     logout();
                     return;
@@ -1389,7 +1425,7 @@
             const u = encodeURIComponent(localStorage.getItem('erp_username') || "");
             const p = encodeURIComponent(localStorage.getItem('erp_password') || "");
             const year = document.getElementById('year-selector') ? document.getElementById('year-selector').value : new Date().getFullYear();
-            
+
             const s = document.createElement("script");
             s.src = API_URL + "?action=" + action + "&year=" + year + "&username=" + u + "&password=" + p + extraParams + "&callback=" + cb;
             document.body.appendChild(s);
@@ -1401,7 +1437,7 @@
 
         function fetchLogs() {
             showLoading(true);
-            doJSONPFetch("getLogs", function(data) {
+            doJSONPFetch("getLogs", function (data) {
                 renderLogsTable(data);
                 showLoading(false);
             });
@@ -1409,16 +1445,16 @@
 
         function renderLogsTable(data) {
             const tbody = document.getElementById('logs-table-body');
-            if(!data || data.length === 0) {
+            if (!data || data.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="4" class="p-8 text-center text-slate-500 italic">Aucun historique disponible</td></tr>`;
                 return;
             }
             tbody.innerHTML = data.map(log => {
                 let badgeColor = "bg-slate-500/20 text-slate-400";
-                if(log.action.includes('Expense')) badgeColor = "bg-amber-500/20 text-amber-400";
-                if(log.action.includes('Invoice') || log.action.includes('Proforma')) badgeColor = "bg-blue-500/20 text-blue-400";
-                if(log.action.includes('Status')) badgeColor = "bg-emerald-500/20 text-emerald-400";
-                if(log.action.includes('Cash')) badgeColor = "bg-emerald-500/20 text-emerald-400";
+                if (log.action.includes('Expense')) badgeColor = "bg-amber-500/20 text-amber-400";
+                if (log.action.includes('Invoice') || log.action.includes('Proforma')) badgeColor = "bg-blue-500/20 text-blue-400";
+                if (log.action.includes('Status')) badgeColor = "bg-emerald-500/20 text-emerald-400";
+                if (log.action.includes('Cash')) badgeColor = "bg-emerald-500/20 text-emerald-400";
 
                 return `
                 <tr class="hover:bg-slate-800/30 transition-colors group">
@@ -1479,14 +1515,14 @@
         }
 
         function fetchCompanies() {
-            doJSONPFetch("getCompanies", function(data) {
+            doJSONPFetch("getCompanies", function (data) {
                 companiesDataCache = data;
                 renderCompaniesTable();
             });
         }
 
         function fetchInvestments() {
-            doJSONPFetch("getInvestments", function(data) {
+            doJSONPFetch("getInvestments", function (data) {
                 renderInvestmentsTable(data);
             });
         }
@@ -1528,7 +1564,7 @@
 
         async function submitInvoice(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]'); 
+            const btn = e.target.querySelector('button[type="submit"]');
             if (btn.disabled) return;
             btn.disabled = true;
             btn.innerHTML = "...";
@@ -1579,7 +1615,7 @@
             });
             if (totalAmount <= 0) { alert("Veuillez saisir un montant valide."); return; }
 
-            const btn = e.target.querySelector('button[type="submit"]'); 
+            const btn = e.target.querySelector('button[type="submit"]');
             if (btn.disabled) return;
             btn.disabled = true;
             btn.innerHTML = "...";
@@ -1632,64 +1668,65 @@
             let totalGlobal = 0;
             let totalFournisseur = 0;
             let totalSelected = 0;
-            
+
             document.querySelectorAll('.expense-line').forEach(l => {
                 const total = parseFloat(l.querySelector('.line-total').value) || 0;
                 const isChecked = l.querySelector('.line-checkbox') ? l.querySelector('.line-checkbox').checked : false;
                 const supplierSelect = l.querySelector('.line-supplier');
                 const lineSupplier = supplierSelect ? supplierSelect.value : "";
-                
+
                 totalGlobal += total;
-                if(globalSupplier !== "" && lineSupplier === globalSupplier) {
+                if (globalSupplier !== "" && lineSupplier === globalSupplier) {
                     totalFournisseur += total;
                 }
-                
-                if(isChecked) {
+
+                if (isChecked) {
                     totalSelected += total;
                 }
             });
-            
+
             document.getElementById('expense-total-global').textContent = totalGlobal.toLocaleString() + " Ar";
-            
+
             const fDisplay = document.getElementById('expense-total-fournisseur');
-            if(globalSupplier === "") {
+            if (globalSupplier === "") {
                 fDisplay.textContent = "-";
             } else {
                 fDisplay.textContent = totalFournisseur.toLocaleString() + " Ar";
             }
-            
+
             document.getElementById('expense-total-display').textContent = totalSelected.toLocaleString() + " Ar";
         }
 
         function getSuppliersOptionsHTML() {
-            return companiesDataCache.filter(c => c.type === "Fournisseur").map(c => `<option value="${c.name}">${c.name}</option>`).join('');
+            if (!window.companiesDataCache) return '';
+            return companiesDataCache.filter(c => c.type && c.type.toLowerCase().includes('fournisseur')).map(c => `<option value="${c.name}">${c.name}</option>`).join('');
         }
 
         function loadProformaLinesForExpense(selectElem) {
             const container = document.getElementById('expense-lines');
-            if(!selectElem || !selectElem.value) {
+            if (!selectElem || !selectElem.value) {
                 container.innerHTML = '<div class="text-center p-8 text-slate-500 text-sm italic">Sélectionnez un projet pour importer les lignes.</div>';
                 updateExpenseTotal();
                 return;
             }
             const selectedOption = selectElem.options[selectElem.selectedIndex];
             const projectId = selectedOption ? selectedOption.getAttribute('data-id') : null;
-            
-            if(!projectId) {
+
+            if (!projectId) {
                 container.innerHTML = '<div class="text-center p-8 text-slate-500 text-sm italic">ID de projet introuvable.</div>';
                 updateExpenseTotal();
                 return;
             }
-            
+
             container.innerHTML = "<div class='flex justify-center p-8'><i class='fas fa-spinner animate-spin text-amber-500 text-2xl'></i></div>";
-            
-            doJSONPFetch('getProjectDetail', function(data) {
-                if(!data || !data.lines || data.lines.length === 0) {
+
+            doJSONPFetch('getProjectDetail', function (data) {
+                if (!data || !data.lines || data.lines.length === 0) {
                     container.innerHTML = '<div class="text-center p-8 text-slate-500 text-sm italic">Aucune ligne de proforma trouvée pour ce projet.</div>';
                     updateExpenseTotal();
                     return;
                 }
-                
+
                 let html = '';
                 let index = 1;
                 data.lines.forEach(l => {
@@ -1698,7 +1735,7 @@
                     const unit = l[3] || '';
                     const pu = l[4] || 0;
                     const total = qte * pu;
-                    
+
                     html += `
                         <div class="expense-line grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-slate-900/40 p-3 rounded-xl sm:bg-transparent sm:p-0 border border-slate-800/50 sm:border-none group transition-all">
                             <div class="sm:col-span-4 flex items-center gap-2">
@@ -1706,8 +1743,8 @@
                                 <span class="line-number text-[10px] text-slate-500 font-mono w-4">${index}</span>
                                 <input type="text" placeholder="Détail" required value="${detail.replace(/"/g, '&quot;')}" class="line-detail bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
                             </div>
-                            <input type="number" placeholder="Qté" value="${qte}" oninput="calcExpenseLine(this)" required class="line-qte sm:col-span-1 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
-                            <input type="text" placeholder="Unité" value="${unit.replace(/"/g, '&quot;')}" required class="line-unit sm:col-span-1 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
+                            <input type="number" placeholder="Qté" value="${qte}" oninput="calcExpenseLine(this)" required class="line-qte sm:col-span-1 bg-slate-900/80 px-1 py-3 text-center rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
+                            <input type="text" placeholder="Unité" value="${unit.replace(/"/g, '&quot;')}" required class="line-unit sm:col-span-1 bg-slate-900/80 px-2 py-3 text-center rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
                             <input type="number" placeholder="P.U (Ar)" value="${pu}" oninput="calcExpenseLine(this)" required class="line-pu sm:col-span-2 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
                             <select required onchange="filterExpenseLines()" class="line-supplier sm:col-span-2 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full text-[11px]">
                                 <option value="">Fournisseur...</option>
@@ -1731,18 +1768,18 @@
             const globalSupplier = document.getElementById('expense-collab').value;
             const lines = document.querySelectorAll('.expense-line');
             let visibleCount = 0;
-            
+
             lines.forEach(l => {
                 const supplierSelect = l.querySelector('.line-supplier');
                 const lineSupplier = supplierSelect ? supplierSelect.value : "";
-                if(globalSupplier === "" || globalSupplier === lineSupplier) {
+                if (globalSupplier === "" || globalSupplier === lineSupplier) {
                     l.classList.remove('hidden');
                     visibleCount++;
                 } else {
                     l.classList.add('hidden');
                 }
             });
-            
+
             document.getElementById('expense-line-counter').textContent = `Lignes affichées : ${visibleCount}/${lines.length}`;
             updateExpenseTotal();
         }
@@ -1752,9 +1789,9 @@
             document.querySelectorAll('.expense-line').forEach(l => {
                 const supplierSelect = l.querySelector('.line-supplier');
                 const lineSupplier = supplierSelect ? supplierSelect.value : "";
-                if(globalSupplier === "" || globalSupplier === lineSupplier) {
+                if (globalSupplier === "" || globalSupplier === lineSupplier) {
                     const cb = l.querySelector('.line-checkbox');
-                    if(cb) cb.checked = check;
+                    if (cb) cb.checked = check;
                 }
             });
             updateExpenseTotal();
@@ -1762,8 +1799,8 @@
 
         function addExpenseLine(empty = false) {
             const container = document.getElementById('expense-lines');
-            if(container.querySelector('.italic')) container.innerHTML = '';
-            
+            if (container.querySelector('.italic')) container.innerHTML = '';
+
             const index = container.querySelectorAll('.expense-line').length + 1;
             const row = document.createElement('div');
             row.className = 'expense-line grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-slate-900/40 p-3 rounded-xl sm:bg-transparent sm:p-0 border border-slate-800/50 sm:border-none mt-2 group transition-all';
@@ -1773,8 +1810,8 @@
                     <span class="line-number text-[10px] text-slate-500 font-mono w-4">${index}</span>
                     <input type="text" placeholder="Détail (ex: Peinture)" required class="line-detail bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
                 </div>
-                <input type="number" placeholder="Qté" oninput="calcExpenseLine(this)" required class="line-qte sm:col-span-1 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
-                <input type="text" placeholder="Unité (ex: Pot, m2)" required class="line-unit sm:col-span-1 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
+                <input type="number" placeholder="Qté" oninput="calcExpenseLine(this)" required class="line-qte sm:col-span-1 bg-slate-900/80 px-1 py-3 text-center rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
+                <input type="text" placeholder="Unité (ex: Pot, m2)" required class="line-unit sm:col-span-1 bg-slate-900/80 px-2 py-3 text-center rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
                 <input type="number" placeholder="P.U (Ar)" oninput="calcExpenseLine(this)" required class="line-pu sm:col-span-2 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full">
                 <select required onchange="filterExpenseLines()" class="line-supplier sm:col-span-2 bg-slate-900/80 p-3 rounded-lg border border-slate-700 outline-none focus:border-amber-500 text-sm w-full text-[11px]">
                     <option value="">Fournisseur...</option>
@@ -1788,7 +1825,7 @@
             `;
             container.appendChild(row);
             filterExpenseLines();
-            if(empty) {
+            if (empty) {
                 row.querySelector('.line-checkbox').checked = true;
                 updateExpenseTotal();
             }
@@ -1808,7 +1845,7 @@
 
             lines.forEach(line => {
                 const cb = line.querySelector('.line-checkbox');
-                if(!cb || !cb.checked) return;
+                if (!cb || !cb.checked) return;
 
                 const u = localStorage.getItem('erp_username') || "Inconnu";
                 const detailInput = line.querySelector('.line-detail').value;
@@ -1819,7 +1856,7 @@
                 const tot = parseFloat(line.querySelector('.line-total').value) || 0;
                 const supplierSelect = line.querySelector('.line-supplier');
                 const collabAchat = supplierSelect ? supplierSelect.value : "";
-                
+
                 totalAmount += tot;
                 const detailStr = `${detail} (${qte} ${unit} x ${pu.toLocaleString()} Ar)`;
 
@@ -1840,13 +1877,13 @@
                 ]);
             });
 
-            if(rowsData.length === 0) {
+            if (rowsData.length === 0) {
                 alert("Veuillez cocher au moins une ligne à enregistrer.");
                 return;
             }
 
             if (totalAmount > currentCash) {
-                if(!confirm("ATTENTION : Le total sélectionné (" + totalAmount.toLocaleString() + " Ar) dépasse votre disponibilité en caisse estimée de " + currentCash.toLocaleString() + " Ar. Voulez-vous continuer ?")) {
+                if (!confirm("ATTENTION : Le total sélectionné (" + totalAmount.toLocaleString() + " Ar) dépasse votre disponibilité en caisse estimée de " + currentCash.toLocaleString() + " Ar. Voulez-vous continuer ?")) {
                     return;
                 }
             }
@@ -1863,7 +1900,7 @@
 
         async function submitCash(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button'); 
+            const btn = e.target.querySelector('button');
             if (btn.disabled) return;
             btn.disabled = true;
             btn.innerHTML = "...";
@@ -1888,7 +1925,7 @@
 
         async function submitCollaborator(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button'); 
+            const btn = e.target.querySelector('button');
             if (btn.disabled) return;
             btn.disabled = true;
             btn.innerHTML = "...";
@@ -1950,7 +1987,7 @@
 
         async function submitInvestment(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]'); 
+            const btn = e.target.querySelector('button[type="submit"]');
             if (btn.disabled) return;
             btn.disabled = true;
             btn.innerHTML = "...";
@@ -2130,7 +2167,7 @@
 
         async function submitEditWorkflow(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]'); 
+            const btn = e.target.querySelector('button[type="submit"]');
             if (btn.disabled) return;
             btn.disabled = true;
             btn.innerHTML = "...";
@@ -2164,7 +2201,7 @@
 
         async function submitEditInvestment(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]'); 
+            const btn = e.target.querySelector('button[type="submit"]');
             if (btn.disabled) return;
             btn.disabled = true;
             btn.innerHTML = "...";
@@ -2257,7 +2294,7 @@
         }
 
         function fetchWorkflow() {
-            doJSONPFetch("getWorkflow", function(data) {
+            doJSONPFetch("getWorkflow", function (data) {
                 workflowDataCache = data;
                 renderWorkflowTable();
             });
@@ -2372,7 +2409,7 @@
         }
 
         function fetchStocks() {
-            doJSONPFetch("getStocks", function(data) {
+            doJSONPFetch("getStocks", function (data) {
                 renderStocksTable(data);
             });
         }
@@ -2481,7 +2518,7 @@
         }
 
         function fetchFinance() {
-            doJSONPFetch("getFinance", function(data) {
+            doJSONPFetch("getFinance", function (data) {
                 financeHeadersCache = data.headers || [];
                 financeDataCache = data.history || [];
                 renderFinanceTable();
@@ -2691,15 +2728,15 @@
 
         // LOGIN SYSTEM & FETCH INTERCEPTOR
         const originalFetch = window.fetch;
-        window.fetch = async function() {
+        window.fetch = async function () {
             if (arguments[0] === API_URL && arguments[1] && arguments[1].method === 'POST') {
                 try {
                     let body = JSON.parse(arguments[1].body);
                     body.username = localStorage.getItem('erp_username') || "";
                     body.password = localStorage.getItem('erp_password') || "";
                     arguments[1].body = JSON.stringify(body);
-                } catch(e) {}
-                
+                } catch (e) { }
+
                 const response = await originalFetch.apply(this, arguments);
                 const clone = response.clone();
                 try {
@@ -2708,7 +2745,7 @@
                         logout();
                         throw new Error("Unauthorized");
                     }
-                } catch(e) {}
+                } catch (e) { }
                 return response;
             }
             return originalFetch.apply(this, arguments);
@@ -2718,7 +2755,7 @@
             e.preventDefault();
             const u = document.getElementById('login-username').value.trim();
             const p = document.getElementById('login-password').value.trim();
-            if(!u || !p) return;
+            if (!u || !p) return;
             localStorage.setItem('erp_username', u);
             localStorage.setItem('erp_password', p);
             document.getElementById('login-error').classList.add('hidden');
@@ -2735,12 +2772,12 @@
         function checkAuth() {
             const u = localStorage.getItem('erp_username');
             const p = localStorage.getItem('erp_password');
-            if(u && p) {
+            if (u && p) {
                 document.getElementById('login-overlay').style.display = 'none';
                 const elInitials = document.getElementById('user-initials');
                 const elFullname = document.getElementById('user-fullname');
-                if(elInitials) elInitials.textContent = u.substring(0, 2).toUpperCase();
-                if(elFullname) elFullname.textContent = u;
+                if (elInitials) elInitials.textContent = u.substring(0, 2).toUpperCase();
+                if (elFullname) elFullname.textContent = u;
                 fetchData();
             } else {
                 document.getElementById('login-overlay').style.display = 'flex';
@@ -2749,7 +2786,7 @@
 
         function toggleUserMenu() {
             const menu = document.getElementById('user-dropdown');
-            if(menu) menu.classList.toggle('hidden');
+            if (menu) menu.classList.toggle('hidden');
         }
 
         window.onload = () => {
@@ -2757,18 +2794,18 @@
             document.documentElement.setAttribute('data-theme', savedTheme);
             const icon = document.getElementById('theme-icon');
             if (icon) icon.className = savedTheme === 'dark' ? 'fas fa-sun text-yellow text-sm' : 'fas fa-moon text-teal text-sm';
-            
+
             // Sélection automatique du mois et de l'année en cours
             const d = new Date();
             const currentYear = d.getFullYear().toString();
             const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
             const currentMonth = months[d.getMonth()];
-            
+
             const yearSelect = document.getElementById('year-selector');
             if (yearSelect && Array.from(yearSelect.options).some(opt => opt.value === currentYear)) {
                 yearSelect.value = currentYear;
             }
-            
+
             const periodSelect = document.getElementById('period-selector');
             if (periodSelect) {
                 periodSelect.value = currentMonth;
