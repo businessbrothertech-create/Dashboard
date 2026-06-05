@@ -1707,7 +1707,7 @@
         }
 
         function getSuppliersOptionsHTML() {
-            if (!window.companiesDataCache) return '';
+            if (!companiesDataCache || companiesDataCache.length === 0) return '';
             return companiesDataCache.filter(c => c.type && c.type.toLowerCase().includes('fournisseur')).map(c => `<option value="${c.name}">${c.name}</option>`).join('');
         }
 
