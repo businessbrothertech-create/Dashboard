@@ -2130,6 +2130,8 @@
             const container = document.getElementById('expense-lines');
             if (container) {
                 container.innerHTML = '<div class="text-center p-8 text-slate-500 text-sm italic">Sélectionnez un projet pour importer les lignes.</div>';
+                // Add a default empty line if no project is selected
+                addExpenseLine(false);
             }
             const totalDisplay = document.getElementById('expense-total-display');
             if (totalDisplay) totalDisplay.textContent = "0 Ar";
