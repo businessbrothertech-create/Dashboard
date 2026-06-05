@@ -2146,8 +2146,8 @@
             const projInput = document.getElementById('expense-project');
             if (projInput) {
                 projInput.value = "";
-                projInput.removeAttribute('readonly');
-                projInput.classList.remove('bg-slate-800', 'text-slate-400');
+                projInput.removeAttribute('disabled');
+                projInput.classList.remove('pointer-events-none', 'opacity-50', 'bg-slate-800', 'text-slate-400');
             }
         }
 
@@ -2156,9 +2156,12 @@
             openModal('expense');
             const projInput = document.getElementById('expense-project');
             if (projInput) {
+                if (!Array.from(projInput.options).some(opt => opt.value === proj)) {
+                    projInput.add(new Option(proj, proj));
+                }
                 projInput.value = proj;
-                projInput.setAttribute('readonly', true);
-                projInput.classList.add('bg-slate-800', 'text-slate-400');
+                projInput.setAttribute('disabled', 'disabled');
+                projInput.classList.add('pointer-events-none', 'opacity-50', 'bg-slate-800', 'text-slate-400');
                 loadProformaLinesForExpense(projInput);
             }
         }
@@ -2296,7 +2299,7 @@
                             ${w.phaseVente}
                         </button>
                     </td>
-                    <td class="p-6 text-emerald-400 font-bold">${(w.margin || 0).toLocaleString()} Ar</td>
+                    <td class="p-6 ${w.margin >= 0 ? 'text-emerald-400' : 'text-rose-400'} font-bold">${(w.margin || 0).toLocaleString()} Ar</td>
                     <td class="p-6 flex gap-3">
                         <i onclick="editWorkflow('${w.id}', '${w.date || ''}', '${w.client || ''}', '${w.project}', ${w.revenue}, '${w.dueDate || ''}')" class="fas fa-edit text-slate-600 hover:text-blue-500 cursor-pointer btn-action"></i>
                         <i onclick="deleteRow('facturation','Base facturation','${w.id}')" class="fas fa-trash text-slate-600 hover:text-rose-500 cursor-pointer btn-action"></i>
